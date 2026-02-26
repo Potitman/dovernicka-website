@@ -1,0 +1,29 @@
+{
+  "name": "Slovenská dôvernícka spoločnosť, s.r.o.",
+  "short_name": "SDS",
+  "description": "Účtovníctvo, daňové poradenstvo a advisory služby v Bratislave.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "lang": "sk",
+  "background_color": "#F4F6F8",
+  "theme_color": "#0B2C4D",
+  "icons": [
+    {
+      "src": "assets/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
