@@ -1,0 +1,1021 @@
+<!doctype html>
+<html lang="sk">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDS | Účtovníctvo a Poradenstvo v Bratislave</title>
+    <meta
+      name="description"
+      content="Profesionálne účtovníctvo, daňové poradenstvo a business advisory služby v Bratislave s medzinárodnými skúsenosťami."
+    >
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0B2C4D">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="SDS | Účtovníctvo a Poradenstvo v Bratislave">
+    <meta
+      property="og:description"
+      content="Profesionálne účtovníctvo, daňové poradenstvo a business advisory služby v Bratislave."
+    >
+    <meta property="og:image" content="assets/logo-sds.png">
+    <meta property="og:locale" content="sk_SK">
+    <link rel="canonical" href="./">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    >
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0B2C4D",
+              secondary: "#F4F6F8",
+              accent: "#D32F2F",
+              ink: "#1A1A1A"
+            },
+            boxShadow: {
+              corporate: "0 12px 34px -18px rgba(11, 44, 77, 0.45)"
+            }
+          }
+        }
+      };
+    </script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        color: #1a1a1a;
+        background: #f4f6f8;
+      }
+
+      .lang-btn.active {
+        background-color: #0b2c4d;
+        color: #f4f6f8;
+        border-color: #0b2c4d;
+      }
+
+      .fade-section {
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+      }
+
+      .fade-section.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .service-card {
+        transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+      }
+
+      .service-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 18px 34px -20px rgba(11, 44, 77, 0.42);
+        border-color: rgba(11, 44, 77, 0.22);
+      }
+
+      .hero {
+        position: relative;
+        background: url("./assets/bridge.png") center / cover no-repeat;
+      }
+
+      .hero__overlay {
+        background:
+          radial-gradient(1200px 800px at 70% 60%, rgba(255, 255, 255, 0.06), transparent 55%),
+          linear-gradient(120deg, rgba(5, 18, 38, 0.94) 0%, rgba(5, 18, 38, 0.76) 45%, rgba(5, 18, 38, 0.94) 100%);
+      }
+
+      .map-pin {
+        position: absolute;
+        left: 51%;
+        top: 27.9%;
+        z-index: 3;
+        transform: translate(-50%, -50%);
+      }
+
+      .map-pin__core {
+        height: 12px;
+        width: 12px;
+        border-radius: 9999px;
+        border: 2px solid rgba(255, 255, 255, 0.95);
+        background: #d32f2f;
+        box-shadow: 0 0 0 1px rgba(211, 47, 47, 0.25);
+      }
+
+      .map-pin__pulse {
+        position: absolute;
+        inset: 0;
+        border-radius: 9999px;
+        border: 2px solid rgba(211, 47, 47, 0.85);
+        animation: mapPulse 2.4s ease-out infinite;
+      }
+
+      @keyframes mapPulse {
+        0% {
+          transform: scale(0.65);
+          opacity: 0.85;
+        }
+        70% {
+          transform: scale(3.1);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(3.3);
+          opacity: 0;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .fade-section {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+
+        .service-card {
+          transition: none;
+        }
+
+        .service-card:hover {
+          transform: none;
+        }
+
+        .map-pin__pulse {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+  <body class="min-h-screen antialiased">
+    <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/88 backdrop-blur-md">
+      <nav class="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between">
+          <a href="#hero" class="flex items-center gap-3">
+            <img
+              src="assets/logo-sds.png"
+              alt="SDS logo"
+              class="h-10 w-10 rounded-md object-cover ring-1 ring-slate-200"
+              loading="eager"
+              decoding="async"
+            >
+            <div class="leading-tight">
+              <p class="text-sm font-semibold text-primary">SDS</p>
+              <p class="text-xs text-slate-600">Accounting & Advisory</p>
+            </div>
+          </a>
+          <div class="hidden items-center gap-6 text-sm font-medium text-slate-700 md:flex">
+            <a href="#hero" data-i18n="nav.home" class="transition-colors hover:text-primary">Domov</a>
+            <a href="#about" data-i18n="nav.about" class="transition-colors hover:text-primary">O nás</a>
+            <a href="#services" data-i18n="nav.services" class="transition-colors hover:text-primary">Služby</a>
+            <a href="#location" data-i18n="nav.location" class="transition-colors hover:text-primary">Lokalita</a>
+            <a href="#contact" data-i18n="nav.contact" class="transition-colors hover:text-primary">Kontakt</a>
+          </div>
+          <div class="flex items-center gap-2" aria-label="Language switch">
+            <button type="button" class="lang-btn active rounded border border-slate-300 px-2 py-1 text-xs font-semibold text-slate-700 transition" data-lang="sk">SK</button>
+            <button type="button" class="lang-btn rounded border border-slate-300 px-2 py-1 text-xs font-semibold text-slate-700 transition" data-lang="de">DE</button>
+            <button type="button" class="lang-btn rounded border border-slate-300 px-2 py-1 text-xs font-semibold text-slate-700 transition" data-lang="en">EN</button>
+          </div>
+        </div>
+        <div class="mt-3 flex items-center gap-4 overflow-x-auto pb-1 text-xs font-medium text-slate-700 md:hidden">
+          <a href="#hero" data-i18n="nav.home" class="whitespace-nowrap transition-colors hover:text-primary">Domov</a>
+          <a href="#about" data-i18n="nav.about" class="whitespace-nowrap transition-colors hover:text-primary">O nás</a>
+          <a href="#services" data-i18n="nav.services" class="whitespace-nowrap transition-colors hover:text-primary">Služby</a>
+          <a href="#location" data-i18n="nav.location" class="whitespace-nowrap transition-colors hover:text-primary">Lokalita</a>
+          <a href="#contact" data-i18n="nav.contact" class="whitespace-nowrap transition-colors hover:text-primary">Kontakt</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section id="hero" class="hero flex min-h-screen items-center overflow-hidden">
+        <div class="hero__overlay absolute inset-0 z-10" aria-hidden="true"></div>
+        <div class="hero__content relative z-20 mx-auto w-full max-w-7xl px-4 pb-24 pt-28 sm:px-6 lg:px-8 lg:pt-32">
+          <div class="max-w-3xl">
+          <p data-i18n="hero.tag" class="text-xs font-semibold uppercase tracking-[0.16em] text-secondary/90">
+            Profesionálne služby
+          </p>
+          <h1 data-i18n="hero.title" class="mt-4 text-4xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl">
+            Staviame dôveru v podnikaní
+          </h1>
+          <p data-i18n="hero.subtitle" class="mt-6 text-base font-medium text-white/90 sm:text-lg">
+            Účtovníctvo • Dane • Poradenstvo
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a
+              href="#services"
+              data-i18n="hero.ctaPrimary"
+              class="inline-flex items-center rounded bg-white px-6 py-3 text-sm font-semibold text-primary transition hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
+            >Služby</a>
+            <a
+              href="#contact"
+              data-i18n="hero.ctaSecondary"
+              class="inline-flex items-center rounded border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
+            >Kontakt</a>
+          </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="fade-section mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div class="max-w-4xl rounded-2xl border border-slate-200 bg-white/95 p-8 shadow-corporate sm:p-10">
+          <h2 data-i18n="about.title" class="text-3xl font-bold text-primary">O nás</h2>
+          <p data-i18n="about.body" class="mt-5 text-base leading-relaxed text-slate-700 sm:text-lg">
+            Sme účtovná a poradenská spoločnosť so sídlom v Bratislave. Podporujeme lokálne aj medzinárodné firmy
+            spoľahlivým účtovníctvom, daňovou expertízou a strategickým poradenstvom. Naše procesy sú nastavené na
+            presnosť, transparentnosť a dlhodobú dôveru.
+          </p>
+          <p data-i18n="about.jpa" class="mt-4 text-sm font-semibold text-primary/90 sm:text-base">
+            Sme súčasťou medzinárodnej siete JPA International.
+          </p>
+          <a
+            href="https://jpainternational.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-5 inline-flex items-center gap-3 rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-primary transition hover:bg-slate-50"
+          >
+            <img
+              src="assets/logo-jpa-international.svg"
+              data-i18n-alt="about.jpaLogoAlt"
+              alt="JPA International logo"
+              class="h-7 w-auto"
+              loading="lazy"
+              decoding="async"
+            >
+            <span data-i18n="about.jpaLink">Navštíviť JPA International</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section id="services" class="fade-section mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div class="mb-10 max-w-3xl">
+          <h2 data-i18n="services.title" class="text-3xl font-bold text-primary">Služby</h2>
+          <p data-i18n="services.intro" class="mt-4 text-base text-slate-700 sm:text-lg">
+            Poskytujeme integrované finančné služby, ktoré podporujú rast, súlad a stabilitu podnikania.
+          </p>
+        </div>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="service-card rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <svg class="h-8 w-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M4 5h16v14H4z"></path><path d="M8 9h8M8 13h8M8 17h5"></path>
+            </svg>
+            <h3 data-i18n="services.cards.accounting.title" class="mt-4 text-lg font-semibold text-primary">Účtovníctvo a vedenie kníh</h3>
+            <p data-i18n="services.cards.accounting.desc" class="mt-3 text-sm leading-relaxed text-slate-600">
+              Kompletné vedenie účtovníctva s dôrazom na presnosť, súlad a pravidelný reporting.
+            </p>
+          </article>
+
+          <article class="service-card rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <svg class="h-8 w-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M5 19h14M7 15V7l5-3 5 3v8"></path><path d="M9.5 12h5"></path>
+            </svg>
+            <h3 data-i18n="services.cards.tax.title" class="mt-4 text-lg font-semibold text-primary">Daňové poradenstvo</h3>
+            <p data-i18n="services.cards.tax.desc" class="mt-3 text-sm leading-relaxed text-slate-600">
+              Praktické daňové riešenia pre efektívne plánovanie, compliance a riadenie rizík.
+            </p>
+          </article>
+
+          <article class="service-card rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <svg class="h-8 w-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M4 18h16"></path><rect x="6" y="4" width="12" height="10" rx="1.5"></rect><path d="M9 18v2M15 18v2"></path>
+            </svg>
+            <h3 data-i18n="services.cards.payroll.title" class="mt-4 text-lg font-semibold text-primary">Mzdová agenda</h3>
+            <p data-i18n="services.cards.payroll.desc" class="mt-3 text-sm leading-relaxed text-slate-600">
+              Spracovanie miezd, odvodov a pracovnoprávnej administratívy bez zbytočného rizika.
+            </p>
+          </article>
+
+          <article class="service-card rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <svg class="h-8 w-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M5 19V9M12 19V5M19 19v-7"></path><path d="M4 19h16"></path>
+            </svg>
+            <h3 data-i18n="services.cards.reporting.title" class="mt-4 text-lg font-semibold text-primary">Finančný reporting</h3>
+            <p data-i18n="services.cards.reporting.desc" class="mt-3 text-sm leading-relaxed text-slate-600">
+              Zrozumiteľné finančné výstupy pre manažment, investorov a medzinárodné skupiny.
+            </p>
+          </article>
+
+          <article class="service-card rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <svg class="h-8 w-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M12 3v18M3 12h18"></path><circle cx="12" cy="12" r="9"></circle>
+            </svg>
+            <h3 data-i18n="services.cards.formation.title" class="mt-4 text-lg font-semibold text-primary">Zakladanie spoločností</h3>
+            <p data-i18n="services.cards.formation.desc" class="mt-3 text-sm leading-relaxed text-slate-600">
+              Podpora pri založení firmy na Slovensku vrátane administratívy a úvodného nastavenia.
+            </p>
+          </article>
+
+          <article class="service-card rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <svg class="h-8 w-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M4 20h16"></path><path d="M7 16l3-3 2 2 5-5"></path><path d="M17 10V6h-4"></path>
+            </svg>
+            <h3 data-i18n="services.cards.consulting.title" class="mt-4 text-lg font-semibold text-primary">Business Consulting</h3>
+            <p data-i18n="services.cards.consulting.desc" class="mt-3 text-sm leading-relaxed text-slate-600">
+              Strategické poradenstvo pre rast, optimalizáciu procesov a lepšie finančné rozhodnutia.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- MAP / LOCATION -->
+      <section id="location" class="fade-section mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div class="rounded-2xl border border-slate-200 bg-white/95 p-8 shadow-corporate sm:p-10">
+          <h2 data-i18n="location.title" class="text-3xl font-bold text-primary">Naša kancelária v Bratislave</h2>
+          <p data-i18n="location.subtitle" class="mt-4 text-base text-slate-700 sm:text-lg">
+            Spájame lokálnu znalosť trhu s medzinárodnou expertízou.
+          </p>
+          <div class="mt-8 overflow-hidden rounded-xl border border-slate-200 bg-primary/5 p-4 sm:p-6">
+            <div class="relative">
+              <img
+                src="assets/jpa-map.jpeg"
+                data-i18n-alt="location.mapAlt"
+                alt="Mapa sveta so zvýraznenou Bratislavou"
+                class="h-auto w-full"
+                loading="lazy"
+                decoding="async"
+              >
+              <div class="map-pin" aria-hidden="true">
+                <div class="map-pin__core"></div>
+                <div class="map-pin__pulse"></div>
+              </div>
+              <span data-i18n="location.marker" class="absolute left-[52.2%] top-[24.9%] z-30 rounded bg-white/95 px-2 py-1 text-xs font-semibold text-primary shadow-sm">
+                Bratislava
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="fade-section mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div class="rounded-2xl border border-slate-200 bg-white/95 p-8 shadow-corporate sm:p-10">
+          <div class="max-w-5xl">
+            <h2 data-i18n="contact.title" class="text-3xl font-bold text-primary">Kontakt</h2>
+            <p data-i18n="contact.intro" class="mt-4 text-base text-slate-700 sm:text-lg">
+              Pre konzultáciu nás kontaktujte telefonicky alebo e-mailom.
+            </p>
+            <div class="mt-8 grid gap-5 sm:grid-cols-2">
+              <article class="rounded-xl border border-slate-200 bg-white p-6">
+                <h3 data-i18n="contact.companyBlockTitle" class="text-sm font-semibold uppercase tracking-wide text-primary">Identifikačné údaje</h3>
+                <div class="mt-4 space-y-3 text-sm text-slate-700 sm:text-base">
+                  <p><span class="font-semibold text-primary" data-i18n="contact.companyLabel">Spoločnosť:</span> <span data-i18n="contact.companyValue">Slovenská dôvernícka spoločnosť, s.r.o.</span></p>
+                  <p><span class="font-semibold text-primary" data-i18n="contact.icoLabel">IČO:</span> <span data-i18n="contact.icoValue">31 395 031</span></p>
+                  <p>
+                    <span class="font-semibold text-primary" data-i18n="contact.memberLabel">Členstvo:</span>
+                    <a
+                      href="https://jpainternational.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-i18n="contact.memberValue"
+                      class="font-medium text-primary hover:underline"
+                    >Súčasť JPA International</a>
+                  </p>
+                </div>
+              </article>
+              <article class="rounded-xl border border-slate-200 bg-white p-6">
+                <h3 data-i18n="contact.contactBlockTitle" class="text-sm font-semibold uppercase tracking-wide text-primary">Kontaktné údaje</h3>
+                <div class="mt-4 space-y-3 text-sm text-slate-700 sm:text-base">
+                  <p><span class="font-semibold text-primary" data-i18n="contact.addressLabel">Adresa:</span> <span data-i18n="contact.addressValue">Koceľova 9, Bratislava - mestská časť Ružinov 821 08, Slovensko</span></p>
+                  <p>
+                    <span class="font-semibold text-primary" data-i18n="contact.phoneLabel">Telefón:</span>
+                    <a href="tel:+421250230402" class="font-medium text-primary hover:underline">+421 250 230 402</a>
+                  </p>
+                  <p>
+                    <span class="font-semibold text-primary" data-i18n="contact.emailLabel">Email:</span>
+                    <a href="mailto:info@dovernicka.sk" class="font-medium text-primary hover:underline">info@dovernicka.sk</a>
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRIVACY -->
+      <section id="privacy" class="fade-section mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div class="rounded-2xl border border-slate-200 bg-white/95 p-8 shadow-corporate sm:p-10">
+          <div class="max-w-4xl">
+            <h2 data-i18n="privacy.title" class="text-3xl font-bold text-primary">Ochrana osobných údajov</h2>
+            <p data-i18n="privacy.updated" class="mt-3 text-sm font-medium text-slate-500">Aktualizované: február 2026</p>
+            <p data-i18n="privacy.intro" class="mt-5 text-base leading-relaxed text-slate-700">
+              Vaše osobné údaje spracúvame transparentne a v súlade s GDPR. Nižšie uvádzame základné informácie o tom,
+              ako údaje získavame, používame a chránime.
+            </p>
+            <div class="mt-8 grid gap-5 md:grid-cols-2">
+              <article class="rounded-xl border border-slate-200 bg-white p-5">
+                <h3 data-i18n="privacy.controllerTitle" class="text-sm font-semibold uppercase tracking-wide text-primary">Prevádzkovateľ údajov</h3>
+                <p data-i18n="privacy.controllerBody" class="mt-3 text-sm leading-relaxed text-slate-600">
+                  Slovenská dôvernícka spoločnosť, s.r.o., Bratislava, Slovensko. Kontakt: info@dovernicka.sk.
+                </p>
+              </article>
+              <article class="rounded-xl border border-slate-200 bg-white p-5">
+                <h3 data-i18n="privacy.purposeTitle" class="text-sm font-semibold uppercase tracking-wide text-primary">Účel spracovania</h3>
+                <p data-i18n="privacy.purposeBody" class="mt-3 text-sm leading-relaxed text-slate-600">
+                  Spracúvame údaje na vybavenie dopytu, poskytovanie služieb, plnenie zákonných povinností a ochranu právnych nárokov.
+                </p>
+              </article>
+              <article class="rounded-xl border border-slate-200 bg-white p-5">
+                <h3 data-i18n="privacy.rightsTitle" class="text-sm font-semibold uppercase tracking-wide text-primary">Vaše práva</h3>
+                <p data-i18n="privacy.rightsBody" class="mt-3 text-sm leading-relaxed text-slate-600">
+                  Máte právo na prístup, opravu, výmaz, obmedzenie spracovania, prenosnosť údajov a podanie námietky.
+                </p>
+              </article>
+              <article class="rounded-xl border border-slate-200 bg-white p-5">
+                <h3 data-i18n="privacy.contactTitle" class="text-sm font-semibold uppercase tracking-wide text-primary">Kontakt pre GDPR</h3>
+                <p data-i18n="privacy.contactBody" class="mt-3 text-sm leading-relaxed text-slate-600">
+                  Žiadosti alebo otázky k ochrane osobných údajov nám pošlite na info@dovernicka.sk.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COOKIES -->
+      <section id="cookies" class="fade-section mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
+        <div class="rounded-2xl border border-slate-200 bg-white/95 p-8 shadow-corporate sm:p-10">
+          <div class="max-w-4xl">
+            <h2 data-i18n="cookies.title" class="text-3xl font-bold text-primary">Cookies</h2>
+            <p data-i18n="cookies.updated" class="mt-3 text-sm font-medium text-slate-500">Aktualizované: február 2026</p>
+            <p data-i18n="cookies.intro" class="mt-5 text-base leading-relaxed text-slate-700">
+              Web používa súbory cookies na bezpečné fungovanie, meranie návštevnosti a zlepšenie používateľského zážitku.
+            </p>
+            <div class="mt-8 grid gap-5 md:grid-cols-3">
+              <article class="rounded-xl border border-slate-200 bg-white p-5">
+                <h3 data-i18n="cookies.necessaryTitle" class="text-sm font-semibold uppercase tracking-wide text-primary">Nevyhnutné cookies</h3>
+                <p data-i18n="cookies.necessaryBody" class="mt-3 text-sm leading-relaxed text-slate-600">
+                  Potrebné pre základné fungovanie stránky, bezpečnosť a zapamätanie preferencií jazyka.
+                </p>
+              </article>
+              <article class="rounded-xl border border-slate-200 bg-white p-5">
+                <h3 data-i18n="cookies.analyticsTitle" class="text-sm font-semibold uppercase tracking-wide text-primary">Analytické cookies</h3>
+                <p data-i18n="cookies.analyticsBody" class="mt-3 text-sm leading-relaxed text-slate-600">
+                  Pomáhajú nám pochopiť používanie webu a zlepšovať obsah. Ukladajú sa len po súhlase.
+                </p>
+              </article>
+              <article class="rounded-xl border border-slate-200 bg-white p-5">
+                <h3 data-i18n="cookies.manageTitle" class="text-sm font-semibold uppercase tracking-wide text-primary">Správa cookies</h3>
+                <p data-i18n="cookies.manageBody" class="mt-3 text-sm leading-relaxed text-slate-600">
+                  Nastavenia môžete kedykoľvek upraviť cez lištu cookies alebo vo vašom prehliadači.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-200 bg-white/95">
+      <div class="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-8 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+        <div class="flex flex-col gap-2 text-sm text-slate-600 sm:flex-row sm:items-center sm:gap-6">
+          <p>© <span id="year">2026</span> Slovenská dôvernícka spoločnosť, s.r.o.</p>
+          <a href="#privacy" data-i18n="footer.privacy" class="font-medium text-primary transition hover:text-primary/80">Zásady ochrany súkromia</a>
+          <a href="#cookies" data-i18n="footer.cookies" class="font-medium text-primary transition hover:text-primary/80">Cookies</a>
+        </div>
+        <div class="flex items-center gap-2">
+          <span data-i18n="footer.language" class="text-xs font-semibold uppercase tracking-wide text-slate-500">Jazyk:</span>
+          <button type="button" class="lang-btn active rounded border border-slate-300 px-2 py-1 text-xs font-semibold text-slate-700 transition" data-lang="sk">SK</button>
+          <button type="button" class="lang-btn rounded border border-slate-300 px-2 py-1 text-xs font-semibold text-slate-700 transition" data-lang="de">DE</button>
+          <button type="button" class="lang-btn rounded border border-slate-300 px-2 py-1 text-xs font-semibold text-slate-700 transition" data-lang="en">EN</button>
+        </div>
+      </div>
+    </footer>
+    <div id="cookie-banner" class="fixed inset-x-0 bottom-4 z-50 mx-auto hidden w-[calc(100%-2rem)] max-w-4xl rounded-xl border border-slate-300 bg-white/96 p-4 shadow-corporate backdrop-blur">
+      <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <p data-i18n="cookieBanner.text" class="text-sm leading-relaxed text-slate-700">
+          Používame cookies pre bezpečné fungovanie webu a meranie návštevnosti. Svoj súhlas môžete kedykoľvek zmeniť.
+        </p>
+        <div class="flex shrink-0 gap-2">
+          <button type="button" data-consent="rejected" data-i18n="cookieBanner.reject" class="rounded border border-slate-300 px-4 py-2 text-xs font-semibold text-slate-700 transition hover:bg-slate-100">Odmietnuť</button>
+          <button type="button" data-consent="accepted" data-i18n="cookieBanner.accept" class="rounded bg-primary px-4 py-2 text-xs font-semibold text-white transition hover:bg-primary/90">Prijať</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      const translations = {
+        sk: {
+          meta: {
+            title: "SDS | Účtovníctvo a Poradenstvo v Bratislave",
+            description:
+              "Profesionálne účtovníctvo, daňové poradenstvo a business advisory služby v Bratislave s medzinárodnými skúsenosťami."
+          },
+          nav: {
+            home: "Domov",
+            about: "O nás",
+            services: "Služby",
+            location: "Lokalita",
+            contact: "Kontakt"
+          },
+          hero: {
+            tag: "Profesionálne služby",
+            title: "Staviame dôveru v podnikaní",
+            subtitle: "Účtovníctvo • Dane • Poradenstvo",
+            ctaPrimary: "Služby",
+            ctaSecondary: "Kontakt"
+          },
+          about: {
+            title: "O nás",
+            body:
+              "Sme účtovná a poradenská spoločnosť so sídlom v Bratislave. Podporujeme lokálne aj medzinárodné firmy spoľahlivým účtovníctvom, daňovou expertízou a strategickým poradenstvom. Naše procesy sú nastavené na presnosť, transparentnosť a dlhodobú dôveru.",
+            jpa: "Sme súčasťou medzinárodnej siete JPA International.",
+            jpaLink: "Navštíviť JPA International",
+            jpaLogoAlt: "Logo JPA International"
+          },
+          services: {
+            title: "Služby",
+            intro:
+              "Poskytujeme integrované finančné služby, ktoré podporujú rast, súlad a stabilitu podnikania.",
+            cards: {
+              accounting: {
+                title: "Účtovníctvo a vedenie kníh",
+                desc: "Kompletné vedenie účtovníctva s dôrazom na presnosť, súlad a pravidelný reporting."
+              },
+              tax: {
+                title: "Daňové poradenstvo",
+                desc: "Praktické daňové riešenia pre efektívne plánovanie, compliance a riadenie rizík."
+              },
+              payroll: {
+                title: "Mzdová agenda",
+                desc: "Spracovanie miezd, odvodov a pracovnoprávnej administratívy bez zbytočného rizika."
+              },
+              reporting: {
+                title: "Finančný reporting",
+                desc: "Zrozumiteľné finančné výstupy pre manažment, investorov a medzinárodné skupiny."
+              },
+              formation: {
+                title: "Zakladanie spoločností",
+                desc: "Podpora pri založení firmy na Slovensku vrátane administratívy a úvodného nastavenia."
+              },
+              consulting: {
+                title: "Business Consulting",
+                desc: "Strategické poradenstvo pre rast, optimalizáciu procesov a lepšie finančné rozhodnutia."
+              }
+            }
+          },
+          location: {
+            title: "Naša kancelária v Bratislave",
+            subtitle: "Spájame lokálnu znalosť trhu s medzinárodnou expertízou.",
+            mapAlt: "Mapa sveta so zvýraznenou Bratislavou",
+            marker: "Bratislava"
+          },
+          contact: {
+            title: "Kontakt",
+            intro: "Pre konzultáciu nás kontaktujte telefonicky alebo e-mailom.",
+            companyBlockTitle: "Identifikačné údaje",
+            contactBlockTitle: "Kontaktné údaje",
+            companyLabel: "Spoločnosť:",
+            companyValue: "Slovenská dôvernícka spoločnosť, s.r.o.",
+            icoLabel: "IČO:",
+            icoValue: "31 395 031",
+            memberLabel: "Členstvo:",
+            memberValue: "Súčasť JPA International",
+            addressLabel: "Adresa:",
+            addressValue: "Koceľova 9, Bratislava - mestská časť Ružinov 821 08, Slovensko",
+            phoneLabel: "Telefón:",
+            emailLabel: "Email:"
+          },
+          footer: {
+            privacy: "Zásady ochrany súkromia",
+            cookies: "Cookies",
+            language: "Jazyk:"
+          },
+          privacy: {
+            title: "Ochrana osobných údajov",
+            updated: "Aktualizované: február 2026",
+            intro:
+              "Vaše osobné údaje spracúvame transparentne a v súlade s GDPR. Nižšie uvádzame základné informácie o tom, ako údaje získavame, používame a chránime.",
+            controllerTitle: "Prevádzkovateľ údajov",
+            controllerBody: "Slovenská dôvernícka spoločnosť, s.r.o., Bratislava, Slovensko. Kontakt: info@dovernicka.sk.",
+            purposeTitle: "Účel spracovania",
+            purposeBody:
+              "Spracúvame údaje na vybavenie dopytu, poskytovanie služieb, plnenie zákonných povinností a ochranu právnych nárokov.",
+            rightsTitle: "Vaše práva",
+            rightsBody:
+              "Máte právo na prístup, opravu, výmaz, obmedzenie spracovania, prenosnosť údajov a podanie námietky.",
+            contactTitle: "Kontakt pre GDPR",
+            contactBody: "Žiadosti alebo otázky k ochrane osobných údajov nám pošlite na info@dovernicka.sk."
+          },
+          cookies: {
+            title: "Cookies",
+            updated: "Aktualizované: február 2026",
+            intro:
+              "Web používa súbory cookies na bezpečné fungovanie, meranie návštevnosti a zlepšenie používateľského zážitku.",
+            necessaryTitle: "Nevyhnutné cookies",
+            necessaryBody: "Potrebné pre základné fungovanie stránky, bezpečnosť a zapamätanie preferencií jazyka.",
+            analyticsTitle: "Analytické cookies",
+            analyticsBody: "Pomáhajú nám pochopiť používanie webu a zlepšovať obsah. Ukladajú sa len po súhlase.",
+            manageTitle: "Správa cookies",
+            manageBody: "Nastavenia môžete kedykoľvek upraviť cez lištu cookies alebo vo vašom prehliadači."
+          },
+          cookieBanner: {
+            text:
+              "Používame cookies pre bezpečné fungovanie webu a meranie návštevnosti. Svoj súhlas môžete kedykoľvek zmeniť.",
+            reject: "Odmietnuť",
+            accept: "Prijať"
+          }
+        },
+        de: {
+          meta: {
+            title: "SDS | Buchhaltung und Beratung in Bratislava",
+            description:
+              "Professionelle Buchhaltung, Steuerberatung und Advisory-Leistungen in Bratislava mit internationaler Erfahrung."
+          },
+          nav: {
+            home: "Start",
+            about: "Über uns",
+            services: "Leistungen",
+            location: "Standort",
+            contact: "Kontakt"
+          },
+          hero: {
+            tag: "Professionelle Leistungen",
+            title: "Vertrauen im Geschäft aufbauen",
+            subtitle: "Buchhaltung • Steuern • Beratung",
+            ctaPrimary: "Leistungen",
+            ctaSecondary: "Kontakt"
+          },
+          about: {
+            title: "Über uns",
+            body:
+              "Wir sind ein Buchhaltungs- und Beratungsunternehmen mit Sitz in Bratislava. Wir unterstützen lokale und internationale Unternehmen mit verlässlicher Buchhaltung, steuerlicher Expertise und strategischer Beratung. Unsere Prozesse stehen für Präzision, Transparenz und langfristiges Vertrauen.",
+            jpa: "Wir sind Teil des internationalen Netzwerks JPA International.",
+            jpaLink: "JPA International besuchen",
+            jpaLogoAlt: "JPA International Logo"
+          },
+          services: {
+            title: "Leistungen",
+            intro:
+              "Wir bieten integrierte Finanzleistungen, die Wachstum, Compliance und Stabilität fördern.",
+            cards: {
+              accounting: {
+                title: "Buchhaltung & Finanzbuchführung",
+                desc: "Umfassende Buchhaltungsführung mit Fokus auf Genauigkeit, Compliance und Reporting."
+              },
+              tax: {
+                title: "Steuerberatung",
+                desc: "Praxisnahe Steuerlösungen für effiziente Planung, Compliance und Risikosteuerung."
+              },
+              payroll: {
+                title: "Lohnverrechnung",
+                desc: "Verlässliche Abwicklung von Löhnen, Abgaben und arbeitsrechtlicher Administration."
+              },
+              reporting: {
+                title: "Finanzreporting",
+                desc: "Klare Finanzberichte für Management, Investoren und internationale Unternehmensgruppen."
+              },
+              formation: {
+                title: "Firmengründung",
+                desc: "Begleitung bei der Gründung in der Slowakei inklusive Verwaltung und Grundeinrichtung."
+              },
+              consulting: {
+                title: "Unternehmensberatung",
+                desc: "Strategische Beratung für Wachstum, Prozessoptimierung und bessere Finanzentscheidungen."
+              }
+            }
+          },
+          location: {
+            title: "Unser Büro in Bratislava",
+            subtitle: "Wir verbinden lokale Marktkenntnis mit internationaler Expertise.",
+            mapAlt: "Weltkarte mit markierter Bratislava",
+            marker: "Bratislava"
+          },
+          contact: {
+            title: "Kontakt",
+            intro: "Für eine Beratung kontaktieren Sie uns bitte telefonisch oder per E-Mail.",
+            companyBlockTitle: "Unternehmensdaten",
+            contactBlockTitle: "Kontaktdaten",
+            companyLabel: "Unternehmen:",
+            companyValue: "Slovenská dôvernícka spoločnosť, s.r.o.",
+            icoLabel: "ID-Nr.:",
+            icoValue: "31 395 031",
+            memberLabel: "Mitgliedschaft:",
+            memberValue: "Mitglied von JPA International",
+            addressLabel: "Adresse:",
+            addressValue: "Koceľova 9, Bratislava - mestská časť Ružinov 821 08, Slowakei",
+            phoneLabel: "Telefon:",
+            emailLabel: "E-Mail:"
+          },
+          footer: {
+            privacy: "Datenschutz",
+            cookies: "Cookies",
+            language: "Sprache:"
+          },
+          privacy: {
+            title: "Datenschutz",
+            updated: "Aktualisiert: Februar 2026",
+            intro:
+              "Wir verarbeiten personenbezogene Daten transparent und gemäß DSGVO. Nachfolgend finden Sie die wichtigsten Informationen zur Datenerhebung, Nutzung und zum Schutz.",
+            controllerTitle: "Verantwortlicher",
+            controllerBody: "Slovenská dôvernícka spoločnosť, s.r.o., Bratislava, Slowakei. Kontakt: info@dovernicka.sk.",
+            purposeTitle: "Zweck der Verarbeitung",
+            purposeBody:
+              "Wir verarbeiten Daten zur Bearbeitung von Anfragen, zur Leistungserbringung, zur Erfüllung gesetzlicher Pflichten und zum Schutz rechtlicher Ansprüche.",
+            rightsTitle: "Ihre Rechte",
+            rightsBody:
+              "Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch.",
+            contactTitle: "DSGVO Kontakt",
+            contactBody: "Senden Sie Anfragen zum Datenschutz bitte an info@dovernicka.sk."
+          },
+          cookies: {
+            title: "Cookies",
+            updated: "Aktualisiert: Februar 2026",
+            intro:
+              "Diese Website verwendet Cookies für sichere Funktionalität, Reichweitenmessung und bessere Nutzererfahrung.",
+            necessaryTitle: "Notwendige Cookies",
+            necessaryBody: "Erforderlich für den Betrieb der Website, Sicherheit und Speicherung von Spracheinstellungen.",
+            analyticsTitle: "Analyse-Cookies",
+            analyticsBody: "Helfen uns, die Nutzung zu verstehen und Inhalte zu verbessern. Werden nur mit Zustimmung gesetzt.",
+            manageTitle: "Cookie-Verwaltung",
+            manageBody: "Ihre Einstellungen können Sie jederzeit über die Cookie-Leiste oder im Browser ändern."
+          },
+          cookieBanner: {
+            text:
+              "Wir verwenden Cookies für den sicheren Betrieb der Website und die Messung der Nutzung. Ihre Entscheidung können Sie jederzeit ändern.",
+            reject: "Ablehnen",
+            accept: "Akzeptieren"
+          }
+        },
+        en: {
+          meta: {
+            title: "SDS | Accounting and Advisory in Bratislava",
+            description:
+              "Professional accounting, tax advisory, and business consulting services in Bratislava with international experience."
+          },
+          nav: {
+            home: "Home",
+            about: "About",
+            services: "Services",
+            location: "Location",
+            contact: "Contact"
+          },
+          hero: {
+            tag: "Professional Services",
+            title: "Building Trust in Business",
+            subtitle: "Accounting • Tax • Advisory",
+            ctaPrimary: "Services",
+            ctaSecondary: "Contact"
+          },
+          about: {
+            title: "About Us",
+            body:
+              "We are an accounting and advisory firm based in Bratislava. We support local and international companies through reliable accounting, tax expertise, and strategic business advisory. Our processes are designed for precision, transparency, and long-term trust.",
+            jpa: "We are part of the international JPA International network.",
+            jpaLink: "Visit JPA International",
+            jpaLogoAlt: "JPA International logo"
+          },
+          services: {
+            title: "Services",
+            intro:
+              "We provide integrated financial services that support growth, compliance, and long-term business stability.",
+            cards: {
+              accounting: {
+                title: "Accounting & Bookkeeping",
+                desc: "End-to-end accounting operations with a strong focus on accuracy, compliance, and reporting."
+              },
+              tax: {
+                title: "Tax Advisory",
+                desc: "Practical tax solutions for efficient planning, compliance, and risk management."
+              },
+              payroll: {
+                title: "Payroll Services",
+                desc: "Reliable payroll processing, contributions, and employment-related administration."
+              },
+              reporting: {
+                title: "Financial Reporting",
+                desc: "Clear financial outputs for management, investors, and international group structures."
+              },
+              formation: {
+                title: "Company Formation",
+                desc: "Support with company setup in Slovakia, including administration and initial structuring."
+              },
+              consulting: {
+                title: "Business Consulting",
+                desc: "Strategic advisory for growth, process optimization, and better financial decision-making."
+              }
+            }
+          },
+          location: {
+            title: "Our Office in Bratislava",
+            subtitle: "Combining local market knowledge with international expertise.",
+            mapAlt: "World map highlighting Bratislava",
+            marker: "Bratislava"
+          },
+          contact: {
+            title: "Contact",
+            intro: "For consultation, please contact us by phone or email.",
+            companyBlockTitle: "Company Details",
+            contactBlockTitle: "Contact Details",
+            companyLabel: "Company:",
+            companyValue: "Slovenská dôvernícka spoločnosť, s.r.o.",
+            icoLabel: "Company ID:",
+            icoValue: "31 395 031",
+            memberLabel: "Membership:",
+            memberValue: "Member of JPA International",
+            addressLabel: "Address:",
+            addressValue: "Koceľova 9, Bratislava - mestská časť Ružinov 821 08, Slovakia",
+            phoneLabel: "Phone:",
+            emailLabel: "Email:"
+          },
+          footer: {
+            privacy: "Privacy Policy",
+            cookies: "Cookies",
+            language: "Language:"
+          },
+          privacy: {
+            title: "Privacy Policy",
+            updated: "Updated: February 2026",
+            intro:
+              "We process personal data transparently and in line with GDPR. Below is a summary of how we collect, use, and protect personal information.",
+            controllerTitle: "Data Controller",
+            controllerBody: "Slovenská dôvernícka spoločnosť, s.r.o., Bratislava, Slovakia. Contact: info@dovernicka.sk.",
+            purposeTitle: "Processing Purpose",
+            purposeBody:
+              "We process data to handle inquiries, deliver services, fulfill legal obligations, and protect legal claims.",
+            rightsTitle: "Your Rights",
+            rightsBody:
+              "You have the right to access, rectification, erasure, restriction of processing, data portability, and objection.",
+            contactTitle: "GDPR Contact",
+            contactBody: "For privacy-related requests, contact us at info@dovernicka.sk."
+          },
+          cookies: {
+            title: "Cookies",
+            updated: "Updated: February 2026",
+            intro:
+              "This website uses cookies for secure operation, audience measurement, and improved user experience.",
+            necessaryTitle: "Necessary Cookies",
+            necessaryBody: "Required for core website functionality, security, and storing language preferences.",
+            analyticsTitle: "Analytics Cookies",
+            analyticsBody: "Help us understand usage and improve content. Set only with your consent.",
+            manageTitle: "Cookie Management",
+            manageBody: "You can change preferences anytime using the cookie bar or your browser settings."
+          },
+          cookieBanner: {
+            text:
+              "We use cookies for secure website operation and traffic measurement. You can change your choice at any time.",
+            reject: "Reject",
+            accept: "Accept"
+          }
+        }
+      };
+
+      const STORAGE_KEY = "site_language";
+      const COOKIE_STORAGE_KEY = "cookie_consent";
+      const DEFAULT_LANG = "sk";
+
+      const getValueByPath = (object, path) =>
+        path.split(".").reduce((acc, segment) => (acc ? acc[segment] : undefined), object);
+
+      const applyLanguage = (lang) => {
+        const locale = translations[lang] ? lang : DEFAULT_LANG;
+        const copy = translations[locale];
+
+        document.documentElement.lang = locale;
+
+        document.querySelectorAll("[data-i18n]").forEach((element) => {
+          const key = element.getAttribute("data-i18n");
+          const value = getValueByPath(copy, key);
+          if (typeof value === "string") {
+            element.textContent = value;
+          }
+        });
+
+        document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+          const key = element.getAttribute("data-i18n-placeholder");
+          const value = getValueByPath(copy, key);
+          if (typeof value === "string") {
+            element.setAttribute("placeholder", value);
+          }
+        });
+
+        document.querySelectorAll("[data-i18n-alt]").forEach((element) => {
+          const key = element.getAttribute("data-i18n-alt");
+          const value = getValueByPath(copy, key);
+          if (typeof value === "string") {
+            element.setAttribute("alt", value);
+          }
+        });
+
+        if (copy.meta?.title) {
+          document.title = copy.meta.title;
+        }
+
+        const description = document.querySelector('meta[name="description"]');
+        if (description && copy.meta?.description) {
+          description.setAttribute("content", copy.meta.description);
+        }
+
+        const ogTitle = document.querySelector('meta[property="og:title"]');
+        if (ogTitle && copy.meta?.title) {
+          ogTitle.setAttribute("content", copy.meta.title);
+        }
+
+        const ogDescription = document.querySelector('meta[property="og:description"]');
+        if (ogDescription && copy.meta?.description) {
+          ogDescription.setAttribute("content", copy.meta.description);
+        }
+
+        document.querySelectorAll(".lang-btn").forEach((button) => {
+          button.classList.toggle("active", button.dataset.lang === locale);
+        });
+
+        try {
+          localStorage.setItem(STORAGE_KEY, locale);
+        } catch (error) {
+        }
+      };
+
+      const initReveal = () => {
+        const sections = document.querySelectorAll(".fade-section");
+        if (!("IntersectionObserver" in window)) {
+          sections.forEach((section) => section.classList.add("is-visible"));
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries, currentObserver) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                currentObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.2 }
+        );
+
+        sections.forEach((section) => observer.observe(section));
+      };
+
+      const initCookieBanner = () => {
+        const banner = document.getElementById("cookie-banner");
+        if (!banner) {
+          return;
+        }
+
+        const savedConsent = (() => {
+          try {
+            return localStorage.getItem(COOKIE_STORAGE_KEY);
+          } catch (error) {
+            return null;
+          }
+        })();
+
+        if (savedConsent) {
+          banner.classList.add("hidden");
+          return;
+        }
+
+        banner.classList.remove("hidden");
+
+        banner.querySelectorAll("[data-consent]").forEach((button) => {
+          button.addEventListener("click", () => {
+            const consentValue = button.getAttribute("data-consent");
+            try {
+              localStorage.setItem(COOKIE_STORAGE_KEY, consentValue || "accepted");
+            } catch (error) {
+            }
+            banner.classList.add("hidden");
+          });
+        });
+      };
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const yearElement = document.getElementById("year");
+        if (yearElement) {
+          yearElement.textContent = String(new Date().getFullYear());
+        }
+
+        const savedLanguage = (() => {
+          try {
+            return localStorage.getItem(STORAGE_KEY);
+          } catch (error) {
+            return null;
+          }
+        })();
+
+        applyLanguage(savedLanguage || DEFAULT_LANG);
+
+        document.querySelectorAll(".lang-btn").forEach((button) => {
+          button.addEventListener("click", () => applyLanguage(button.dataset.lang));
+        });
+
+        initReveal();
+        initCookieBanner();
+      });
+    </script>
+  </body>
+</html>

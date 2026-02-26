@@ -1,0 +1,56 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky" x1="960" y1="0" x2="960" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#AFC3D5" stop-opacity="0.36"/>
+      <stop offset="1" stop-color="#AFC3D5" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="deck" x1="72" y1="742" x2="1850" y2="742" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E2EDF8" stop-opacity="0.15"/>
+      <stop offset="0.5" stop-color="#E8F1FA" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#DCE9F4" stop-opacity="0.16"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#sky)"/>
+
+  <g stroke="#D6E3EF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M72 742C340 700 610 688 960 688C1310 688 1580 700 1850 742" stroke="url(#deck)"/>
+    <path d="M120 774C350 728 650 710 960 710C1270 710 1570 728 1800 774" stroke-opacity="0.26"/>
+    <path d="M100 812C390 772 700 756 960 756C1220 756 1530 772 1820 812" stroke-opacity="0.18"/>
+  </g>
+
+  <g stroke="#E3EDF6" stroke-opacity="0.42" stroke-width="2.4" fill="none">
+    <path d="M965 225V690"/>
+    <path d="M1020 245V700" stroke-opacity="0.28"/>
+    <path d="M910 245V700" stroke-opacity="0.28"/>
+  </g>
+
+  <g stroke="#DBE8F4" stroke-opacity="0.26" stroke-linecap="round">
+    <path d="M964 270L560 708"/>
+    <path d="M964 294L606 706"/>
+    <path d="M964 318L652 704"/>
+    <path d="M964 342L698 701"/>
+    <path d="M964 366L744 699"/>
+    <path d="M964 390L790 697"/>
+    <path d="M964 414L836 695"/>
+    <path d="M964 438L882 693"/>
+    <path d="M964 462L928 691"/>
+
+    <path d="M964 270L1368 708"/>
+    <path d="M964 294L1322 706"/>
+    <path d="M964 318L1276 704"/>
+    <path d="M964 342L1230 701"/>
+    <path d="M964 366L1184 699"/>
+    <path d="M964 390L1138 697"/>
+    <path d="M964 414L1092 695"/>
+    <path d="M964 438L1046 693"/>
+    <path d="M964 462L1000 691"/>
+  </g>
+
+  <g stroke="#E6F0FA" stroke-opacity="0.16" stroke-width="1.4">
+    <path d="M0 860H1920"/>
+    <path d="M0 910H1920"/>
+    <path d="M0 960H1920"/>
+    <path d="M0 1010H1920"/>
+  </g>
+</svg>

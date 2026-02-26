@@ -1,0 +1,48 @@
+<svg width="1200" height="620" viewBox="0 0 1200 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="620" rx="18" fill="#EFF3F7"/>
+
+  <g fill="#0B2C4D" fill-opacity="0.86">
+    <path d="M92 252L124 214L178 202L224 214L260 240L284 272L260 292L214 298L184 326L142 324L116 302L86 290L82 268L92 252Z"/>
+    <path d="M292 272L344 238L416 224L492 228L552 250L592 286L584 326L544 356L478 370L424 350L382 314L336 306L306 292L292 272Z"/>
+    <path d="M530 180L572 166L626 170L688 194L738 228L778 266L770 302L728 324L682 316L652 286L612 270L566 250L534 228L530 180Z"/>
+    <path d="M624 338L662 324L702 330L736 356L748 388L732 416L694 428L652 416L622 388L614 362L624 338Z"/>
+    <path d="M760 220L816 204L896 208L964 230L1016 268L1030 302L1008 330L946 348L880 342L820 320L778 294L760 220Z"/>
+    <path d="M934 390L980 380L1030 390L1068 414L1084 442L1074 472L1040 490L992 486L954 470L930 444L924 416L934 390Z"/>
+  </g>
+
+  <g fill="#8EA6BC">
+    <circle cx="348" cy="248" r="5"/>
+    <circle cx="452" cy="322" r="5"/>
+    <circle cx="548" cy="258" r="5"/>
+    <circle cx="812" cy="266" r="5"/>
+    <circle cx="944" cy="284" r="5"/>
+    <circle cx="988" cy="430" r="5"/>
+  </g>
+
+  <circle cx="650" cy="274" r="7" fill="#D32F2F"/>
+  <circle class="pulse-ring" cx="650" cy="274" r="8" fill="none" stroke="#D32F2F" stroke-width="2"/>
+
+  <style>
+    .pulse-ring {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: pulse 2.4s ease-out infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(0.7);
+        opacity: 0.7;
+      }
+      70% {
+        transform: scale(3);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(3.2);
+        opacity: 0;
+      }
+    }
+  </style>
+</svg>
