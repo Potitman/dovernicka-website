@@ -127,7 +127,9 @@
       }
 
       .site-header .header-logo {
-        border: 1px solid rgba(148, 163, 184, 0.35);
+        display: block;
+        border: 0;
+        transition: filter 0.25s ease;
       }
 
       .site-header .lang-btn {
@@ -164,7 +166,7 @@
       }
 
       .site-header.header-on-hero .header-logo {
-        border-color: rgba(241, 245, 249, 0.4);
+        filter: brightness(0) invert(1);
       }
 
       .site-header.header-on-hero .lang-btn {
@@ -280,17 +282,19 @@
     <header id="site-header" class="site-header sticky top-0 z-50 border-b backdrop-blur-md">
       <nav class="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between">
-          <a href="#hero" class="flex items-center gap-3">
+          <a href="#hero" class="flex min-w-0 items-center gap-3">
             <img
-              src="assets/logo-sds.png"
-              alt="SDS logo"
-              class="header-logo h-10 w-10 rounded-md object-cover"
+              src="assets/logo-jpa-international.svg"
+              alt="JPA International logo"
+              class="header-logo h-8 w-auto max-w-[8.5rem] object-contain sm:h-9"
               loading="eager"
               decoding="async"
             >
-            <div class="leading-tight">
-              <p class="header-brand-title text-sm font-semibold">SDS</p>
-              <p class="header-brand-subtitle text-xs">Accounting & Advisory</p>
+            <div class="min-w-0 leading-tight">
+              <p class="header-brand-title max-w-[12.5rem] text-[11px] font-semibold leading-tight sm:max-w-[18rem] sm:text-sm">
+                Slovenská dôvernícka spoločnosť, s.r.o.
+              </p>
+              <p class="header-brand-subtitle text-[11px] sm:text-xs">JPA International</p>
             </div>
           </a>
           <div class="hidden items-center gap-6 text-sm font-medium md:flex">
@@ -352,9 +356,9 @@
         <div class="max-w-4xl rounded-2xl border border-slate-200 bg-white/95 p-8 shadow-corporate sm:p-10">
           <h2 data-i18n="about.title" class="text-3xl font-bold text-primary">O nás</h2>
           <p data-i18n="about.body" class="mt-5 text-base leading-relaxed text-slate-700 sm:text-lg">
-            Sme účtovná a poradenská spoločnosť so sídlom v Bratislave. Podporujeme lokálne aj medzinárodné firmy
-            spoľahlivým účtovníctvom, daňovou expertízou a strategickým poradenstvom. Naše procesy sú nastavené na
-            presnosť, transparentnosť a dlhodobú dôveru.
+            Sme účtovná a poradenská spoločnosť so sídlom v Bratislave s viac ako 30-ročnou skúsenosťou.
+            Podporujeme lokálne aj medzinárodné firmy spoľahlivým účtovníctvom, daňovou expertízou a strategickým
+            poradenstvom. Naše procesy sú nastavené na presnosť, transparentnosť a dlhodobú dôveru.
           </p>
           <p data-i18n="about.jpa" class="mt-4 text-sm font-semibold text-primary/90 sm:text-base">
             Sme súčasťou medzinárodnej siete JPA International.
@@ -490,7 +494,7 @@
               <article class="rounded-xl border border-slate-200 bg-white p-6">
                 <h3 data-i18n="contact.companyBlockTitle" class="text-sm font-semibold uppercase tracking-wide text-primary">Identifikačné údaje</h3>
                 <div class="mt-4 space-y-3 text-sm text-slate-700 sm:text-base">
-                  <p><span class="font-semibold text-primary" data-i18n="contact.companyLabel">Spoločnosť:</span> <span data-i18n="contact.companyValue">Slovenská dôvernícka spoločnosť, s.r.o.</span></p>
+                  <p class="font-semibold text-primary" data-i18n="contact.companyValue">Slovenská dôvernícka spoločnosť, s.r.o.</p>
                   <p><span class="font-semibold text-primary" data-i18n="contact.icoLabel">IČO:</span> <span data-i18n="contact.icoValue">31 395 031</span></p>
                   <p>
                     <span class="font-semibold text-primary" data-i18n="contact.memberLabel">Členstvo:</span>
@@ -658,7 +662,7 @@
           about: {
             title: "O nás",
             body:
-              "Sme účtovná a poradenská spoločnosť so sídlom v Bratislave. Podporujeme lokálne aj medzinárodné firmy spoľahlivým účtovníctvom, daňovou expertízou a strategickým poradenstvom. Naše procesy sú nastavené na presnosť, transparentnosť a dlhodobú dôveru.",
+              "Sme účtovná a poradenská spoločnosť so sídlom v Bratislave s viac ako 30-ročnou skúsenosťou. Podporujeme lokálne aj medzinárodné firmy spoľahlivým účtovníctvom, daňovou expertízou a strategickým poradenstvom. Naše procesy sú nastavené na presnosť, transparentnosť a dlhodobú dôveru.",
             jpa: "Sme súčasťou medzinárodnej siete JPA International.",
             jpaLink: "Navštíviť JPA International",
             jpaLogoAlt: "Logo JPA International"
@@ -782,7 +786,7 @@
           about: {
             title: "Über uns",
             body:
-              "Wir sind ein Buchhaltungs- und Beratungsunternehmen mit Sitz in Bratislava. Wir unterstützen lokale und internationale Unternehmen mit verlässlicher Buchhaltung, steuerlicher Expertise und strategischer Beratung. Unsere Prozesse stehen für Präzision, Transparenz und langfristiges Vertrauen.",
+              "Wir sind ein Buchhaltungs- und Beratungsunternehmen mit Sitz in Bratislava und verfügen über mehr als 30 Jahre Erfahrung. Wir unterstützen lokale und internationale Unternehmen mit verlässlicher Buchhaltung, steuerlicher Expertise und strategischer Beratung. Unsere Prozesse stehen für Präzision, Transparenz und langfristiges Vertrauen.",
             jpa: "Wir sind Teil des internationalen Netzwerks JPA International.",
             jpaLink: "JPA International besuchen",
             jpaLogoAlt: "JPA International Logo"
@@ -906,7 +910,7 @@
           about: {
             title: "About Us",
             body:
-              "We are an accounting and advisory firm based in Bratislava. We support local and international companies through reliable accounting, tax expertise, and strategic business advisory. Our processes are designed for precision, transparency, and long-term trust.",
+              "We are an accounting and advisory firm based in Bratislava with more than 30 years of experience. We support local and international companies through reliable accounting, tax expertise, and strategic business advisory. Our processes are designed for precision, transparency, and long-term trust.",
             jpa: "We are part of the international JPA International network.",
             jpaLink: "Visit JPA International",
             jpaLogoAlt: "JPA International logo"
